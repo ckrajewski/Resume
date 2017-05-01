@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../../components/Header/header";
+import LandingPage from "../../components/LandingPage/landingPage";
 import Resume from "../../pages/Resume/resume";
 import AboutMe from "../../pages/AboutMe/aboutMe";
 import SideProjects from "../../pages/SideProjects/sideProjects";
@@ -9,7 +10,7 @@ export default class Layout extends React.Component {
     constructor() {
         super();
         this.state = {
-            "navTo": Resume,
+            "navTo": LandingPage,
             "Resume": Resume,
             "AboutMe" : AboutMe,
             "SideProjects":SideProjects
@@ -25,11 +26,12 @@ export default class Layout extends React.Component {
 
     }
     render() {
+
      var Content = this.state.navTo;
      return (
       <div className="layout" onClick={this.handleAllClickEvents.bind(this)}>
        <Header />
-       <Content />
+       <Content /> 
       </div>
     );
 }
