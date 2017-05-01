@@ -142,9 +142,10 @@ body{
     color: white;
     font-size: 1.1em;
     font-weight: bold;
-    padding:0.5%;
     padding-left: 0.6%;
     padding-right:0.6%;
+    padding-bottom:0.5em;
+    padding-top:0.5em;
     border: none;
     border-radius: 0.25em;
     margin-left:3%;
