@@ -17,7 +17,6 @@ export default class Experience extends React.Component {
   render() {
     return (
       <div className="Experience">
-      <SectionTitle title={"Experience"} />
         <Job  position={"Global Wealth & Investment Management"} 
               company={"Merril Lynch"}
               duration={"2015 - 2016"}

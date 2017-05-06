@@ -24,6 +24,16 @@ module.exports = {
         loader: "style-loader!css-loader"
       },
       {
+        test: /\.less$/,
+        loaders: [{
+                loader: "style-loader" // creates style nodes from JS strings
+              }, {
+                loader: "css-loader" // translates CSS into CommonJS
+             }, {
+                loader: "less-loader" // compiles Less to CSS
+        }]
+      },
+      {
         test: /\.(jpe?g|png|gif|svg)$/i, 
         loader: "file-loader?name=/public/images/[name].[ext]"
       }

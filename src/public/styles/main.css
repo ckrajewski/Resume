@@ -1,16 +1,19 @@
 body{
   font-family:'Roboto',sans-serif;
-  background-image: url("../images/room.jpg"); 
+  background-image: url("../images/cleanRoom.png"); 
   background-size: cover;
 
 
+}
+.flex{
+  display: flex;
 }
 .landingPage{
  /* background-image: url("../images/room.jpg");*/
 }
 .headerAndButtonContainer{
   position: absolute;
-  top: 45%;
+  top: 42%;
   left: 50%;
   transform: translate(-50%, -50%);
  /* padding-top: 10%;
@@ -20,13 +23,12 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 1%;
+  padding-top: 10%;
 }
 .landingHeader{
-  font-size:4.5em;
+  font-size:3em;
   text-align: center;
   flex-flow: row;
-  text-transform: uppercase;
 }
 .layout{
  /* padding-left: 2%;
