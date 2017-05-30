@@ -3,6 +3,7 @@ var path = require('path');
 
 module.exports = {
   context: path.join(__dirname, "/src"),
+  devtool: "inline-sourcemap",
   entry: "./main.js",
   module: {
     loaders: [
