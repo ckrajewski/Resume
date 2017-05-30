@@ -1,26 +1,22 @@
 import React from "react";
 import ImageContainer from "../ImageContainer/imageContainer";
+import Plaque from "../Plaque/plaque.js"
 export default class Job extends React.Component {
 
-  constructor() {
-    super();
-    this.state = {
-      jobImageContainerClass: "jobLogo"
-    };
-  }
+
 
   render() {
     return (
-      <div className="job">
-        <div className="jobInfo">
-          <div className="position"> {this.props.position} </div>
-          <div className="company"> {this.props.company}</div>
-          <div className="duration"> {this.props.duration} </div>
-        </div>
-        <div className="jobLogo">
-        <ImageContainer imageContainerClass={this.state.jobImageContainerClass} 
-                                           img= {this.props.jobImage} />
-      </div>
+      <div>
+      <ImageContainer imageContainerClass="jobImageContainer"
+                      img= {this.props.jobImage} 
+                      imageWidth={this.props.jobImageWidth} 
+                      imageHeight={this.props.jobImageHeight}
+                      navTo={this.props.navTo} />
+      <Plaque position={this.props.position}
+              company={this.props.company} 
+              duration={this.props.duration}
+              />
       </div>
     );
   }

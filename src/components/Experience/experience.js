@@ -17,31 +17,33 @@ export default class Experience extends React.Component {
   render() {
     return (
       <div className="Experience">
-        <Job  position={"Global Wealth & Investment Management"} 
-              company={"Merril Lynch"}
-              duration={"2015 - 2016"}
-              jobImage={"/src/public/images/merrilLynch.png"}
+      <SectionTitle title="Experience" />
+      <div className="ExperienceLayout">
+        <Job  position="Developer"
+              company="Salesforce"
+              duration={"2015 - Present"}
+              jobImage={"/public/images/salesforceLogo.png"}
+              jobImageWidth="140px"
+              navTo="https://salesforce.com"
               />
-        <Job  position={"Financial Planning and Analysis"} 
-              company={"Walmart eCommerce"}
-              duration={"2014 - 2014 (Less than a year"}
-              jobImage={"/src/public/images/walMart.png"}
+        <Job  position={"Developer"} 
+              company={"Terrace Software"}
+              duration={"2013 - 2014"}
+              jobImage={"/public/images/terrace.png"}
+              jobImageWidth="140px"
+              jobImageHeight="100px"
+              navTo="http://salesforce.com"
               />
-        <Job  position={"Financial Planning and Analysis"} 
-              company={"Intel Corporation"}
-              duration={"2011 - 2014"}
-              jobImage={"/src/public/images/intel.png"}
+        </div>
+        <div className="ExperienceLayout">
+        <Job  position="Developer" 
+              company={"Forefront Corp"}
+              duration={"2012 - 2013"}
+              jobImage={"/public/images/forefrontLogo.jpg"}
+              jobImageWidth="200px"
+              navTo="http://forefrontcorp.com"
               />
-        <Job  position={"Investment Management"} 
-              company={"Berkeley Investment Group"}
-              duration={"2010 - 2011"}
-              jobImage={"/src/public/images/berkley.png"}
-              />
-        <Job  position={"Employee Wellness"} 
-              company={"Berkeley Investment Group"}
-              duration={"2010 - 2010 (Less than year)"}
-              jobImage={"/src/public/images/kaiser.png"}
-              />
+      </div>
       </div>
     );
   }

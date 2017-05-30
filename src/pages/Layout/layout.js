@@ -11,6 +11,7 @@ export default class Layout extends React.Component {
         super();
         this.state = {
             "navTo": LandingPage,
+            "LandingPage":LandingPage,
             "Resume": Resume,
             "AboutMe" : AboutMe,
             "SideProjects":SideProjects
