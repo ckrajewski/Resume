@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 
 export default class Tab extends React.Component {
 
-handleClickEvents (event){
+handleClickEvents (){
 	debugger;
 }
 

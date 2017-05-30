@@ -4,7 +4,7 @@ export default class Button extends React.Component {
 
 
     downloadResume() {
-
+      debugger;
        window.location.href=this.props.downloadURL;
     }
 
