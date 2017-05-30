@@ -27,7 +27,7 @@ module.exports = {
     filename: "mainCreated.js"
   },
 
-plugins: [
-    new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false, drop_debugger: false })
-  ]
+// plugins: [
+//     new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false, drop_debugger: false })
+//   ]
 };
