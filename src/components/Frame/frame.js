@@ -1,29 +1,28 @@
 import React from "react";
-import LandingPage from "../LandingPage/landingPage";
-import AboutMe from "../../pages/AboutMe/aboutMe";
-import Title from "../Title/title";
-import Experience from "../Experience/experience"
 export default class Job extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      "LandingPage":LandingPage,
-      "AboutMe":AboutMe,
-      "Title": Title,
-      "Experience":Experience
-    };
+  handleNavigation (event){
+    if(this.props.navTo){
+        var win = window.open(this.props.navTo, '_blank');
+      if (win) {
+        //Browser has allowed it to be opened
+      win.focus();
+      } 
+    }
   }
-
+  
   render() {
-    var Content = this.state[this.props.component];
+    var pointerStyle = "";
+    if(this.props.navTo!=null){
+          pointerStyle=" pointer";
+      }
     return (
-      <div className="wrapper">
-        <div className="picture">
+      <div className={"wrapper" + pointerStyle} onClick={this.handleNavigation.bind(this)}>
+        <div className="picture" style={this.props.pictureStyle}>
           <div className="hook"></div>
             <div className="frame">
               <div className="inside">
-                <Content />
+                {this.props.children}
               </div>
             </div>
         </div>

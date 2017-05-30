@@ -5,7 +5,6 @@
 
 .wrapper {
     margin: 0 auto;
-    width: 42em;
 }
 
 .wrapper::after {
@@ -45,10 +44,15 @@
 
 .frame {
    
-    border-top: 1em solid #b89675;
+   /* border-top: 1em solid #b89675;
     border-right: 1em solid #7b654f;
     border-bottom: 1em solid #7b654f;
-    border-left: 1em solid #a67c52;
+    border-left: 1em solid #a67c52;*/
+
+    border-top: 1em solid #712F04;
+    border-right: 1em solid #AF6622;
+    border-bottom: 1em solid #712F04;
+    border-left: 1em solid #AF6622;
     box-shadow: 4px 4px 0 0 rgba(189, 166, 72, 0.6);
     z-index: 1;
 }
