@@ -25,5 +25,9 @@ module.exports = {
   output: {
     path: __dirname + "/dist/",
     filename: "mainCreated.js"
-  }
+  },
+
+plugins: [
+    new webpack.optimize.UglifyJsPlugin({ drop_debugger:true }),
+  ],
 };
