@@ -28,6 +28,6 @@ module.exports = {
   },
 
 plugins: [
-    new webpack.optimize.UglifyJsPlugin({ drop_debugger:true })
+    new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false, drop_debugger: false })
   ]
 };
