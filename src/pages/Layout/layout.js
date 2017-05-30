@@ -19,6 +19,7 @@ export default class Layout extends React.Component {
     }
 
     handleAllClickEvents(event) {
+        debugger;
         //this.state.navTo=event.target.parentNode.getAttribute("data-content");
         var navTo = event.target.parentNode.getAttribute("data-content");
         if (navTo) {

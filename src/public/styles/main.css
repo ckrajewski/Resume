@@ -1,6 +1,6 @@
 body {
   font-family:'Roboto',sans-serif;
-  background-image: url("/public/images/cleanRoom.png");
+  background-image: url("/src/public/images/cleanRoom.png");
   background-size: cover;
   background-attachment: fixed; 
 }
