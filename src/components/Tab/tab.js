@@ -9,7 +9,7 @@ handleClickEvents (){
 
   render() {
     return (
-      <div className="tabContainer">
+      <div className="tabContainer" data-content={this.props.dataContent}>
         <div className="tab" data-content={this.props.dataContent} onClick={this.handleClickEvents.bind(this)}> {this.props.title} </div>
      </div>
     );
