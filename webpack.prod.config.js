@@ -24,11 +24,5 @@ module.exports = {
   output: {
     path: __dirname + "/dist/",
     filename: "mainCreated.js"
-  },
-
-plugins: [
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
-  ],
+  }
 };
