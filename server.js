@@ -7,8 +7,8 @@ var fs = require('fs');
 app.set('port', (process.env.PORT || 8080));
 
 app.use(express.static(path.join(__dirname, '/dist')));
-app.use("/src/public/images", express.static(__dirname + "/src/public/images"));
-app.use("/src/public/documents", express.static(__dirname + "/src/public/documents"));
+app.use("/public/images", express.static(__dirname + "/src/public/images"));
+app.use("/public/documents", express.static(__dirname + "/src/public/documents"));
 
 app.get('/downloads', function(request, response) {
   

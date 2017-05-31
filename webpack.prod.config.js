@@ -3,6 +3,7 @@ var path = require('path');
 
 module.exports = {
   context: path.join(__dirname, "/src"),
+  devtool: "inline-sourcemap",
   entry: "./main.js",
   module: {
     loaders: [
@@ -26,9 +27,7 @@ module.exports = {
     filename: "mainCreated.js"
   },
 
-plugins: [
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
-  ],
+// plugins: [
+//     new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false, drop_debugger: false })
+//   ]
 };
