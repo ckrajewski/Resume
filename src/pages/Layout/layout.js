@@ -23,7 +23,12 @@ export default class Layout extends React.Component {
         //this.state.navTo=event.target.parentNode.getAttribute("data-content");
         var navTo = event.target.getAttribute("data-content");
         if (navTo) {
-            this.setState({ "navTo": this.state[event.target.parentNode.getAttribute("data-content")] });
+            this.setState({ "navTo": this.state[navTo] });
+            return;
+        }
+        navTo = event.target.parentNode.getAttribute("data-content");
+        if(navTo) {
+            this.setState({ "navTo":  this.state[navTo] });
         }
 
     }
