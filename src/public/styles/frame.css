@@ -67,6 +67,9 @@
     /*box-shadow: 1px 1px 1px 1px rgba(189, 193, 194, 0.3) inset; */ 
 }
 
+.pictureInside {
+    margin-bottom: -2%;
+}
 .dribbble {
     font: 0.75em/1.5em verdana, sans-serif;
     color: #7b654f;

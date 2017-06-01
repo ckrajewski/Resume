@@ -16,12 +16,16 @@ export default class Job extends React.Component {
     if(this.props.navTo!=null){
           pointerStyle=" pointer";
       }
+    var insideClass = "inside";
+    if(this.props.insideClass!=null){
+          insideClass=this.props.insideClass;
+      } 
     return (
       <div className={"wrapper" + pointerStyle} onClick={this.handleNavigation.bind(this)}>
         <div className="picture" style={this.props.pictureStyle}>
           <div className="hook"></div>
             <div className="frame">
-              <div className="inside">
+              <div className={insideClass}>
                 {this.props.children}
               </div>
             </div>
