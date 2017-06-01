@@ -10,7 +10,7 @@ export default class AboutMe extends React.Component {
         <ImageContainer img="/public/images/profilePic.png"
                         imageWidth="310px"
                         insideClass="pictureInside"/>
-      <PersonalDescription />
+      <PersonalDescription/>
       </div>
     );
   }

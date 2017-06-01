@@ -1,6 +1,5 @@
 import React from "react";
 import Frame from "../Frame/frame";
-import Job from "../Job/job";
 import Title from "../Title/title";
 import Button from "../Button/button";
 export default class LandingPage extends React.Component {
