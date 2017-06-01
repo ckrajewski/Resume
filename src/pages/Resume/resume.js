@@ -8,7 +8,7 @@ export default class Resume extends React.Component {
     return (
      <div className="resume">
       <ImageContainer insideClass="pictureInsides"
-                      img= "/public/images/resume3.jpg"
+                      img= "/public/images/resume.jpg"
                       imageWidth="750px" />
 
       <ResumeDescription/>
