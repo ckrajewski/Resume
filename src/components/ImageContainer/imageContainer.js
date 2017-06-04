@@ -22,7 +22,7 @@ export default class ImageContainer extends React.Component {
     }
     else
     {
-  	 this.state.pictureStyle.width=Number.parseInt(this.props.imageWidth)+30+"px";
+  	 this.state.pictureStyle.width=Number.parseInt(this.props.imageWidth)+32+"px";
     }
     return (
        <Frame pictureStyle={this.state.pictureStyle} navTo={this.props.navTo} insideClass={this.props.insideClass}>
