@@ -35,9 +35,14 @@ body {
 .description {
   font-weight: bold;
 }
+
 .descriptionContainer{
-  /*background-color:#b2a9a7;*/
- }
+  background-color: white;
+  font-family: sans-serif;
+  padding:2.5%;
+  border-radius: 10%;
+}
+
 .duration { font-size: 0.8em; }
  
  
@@ -120,11 +125,9 @@ body {
   margin-left: auto;
   
 }
-.descriptionContainer{
-  background-color: white;
-  font-family: sans-serif;
-  padding:3%;
-  border-radius: 10%;
+.pictureInsideProject{
+  margin-bottom: -3%;
+  cursor: pointer;
 }
 .pointer { cursor: pointer; }
  
@@ -139,11 +142,17 @@ body {
   margin-left: auto;
   margin-right: auto;
  }
-.resume {
+.projects,.resume {
   padding-top: 1%;
   display: flex; }
  
- 
+ .projects{
+  align-items: flex-start;
+ }
+ .projectsDescriptionContainer{
+  width:20%;
+  margin-top:3%;
+ }
 .resumeButton {
   color: white;
   font-size: 1.1em;
@@ -182,7 +191,7 @@ body {
  
  
 .sectionTitle {
-  font-size:1.7em;
+  font-size:1.5em;
   padding-bottom: 1%;
   text-align: center;
   text-transform: uppercase;
@@ -210,8 +219,7 @@ body {
  
   .tab:hover {
     color:black; /*color:#6ABBDD;*/
-    border: solid 3px;
-    border-color: white; }
+     }
  
  
 .tabContainer { }
