@@ -12,7 +12,7 @@ export default class Title extends React.Component {
 
   render() {
     return (
-      	<div className="landingHeader"> Chris Krajewski </div>  
+      	<div className="landingHeader"> Chris <br/> Krajewski </div>  
     );
   }
 }
