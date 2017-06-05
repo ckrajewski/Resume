@@ -35,7 +35,7 @@ export default class Layout extends React.Component {
 
      var Content = this.state.navTo;
      return (
-      <div className="layout" onClick={this.handleAllClickEvents.bind(this)}>
+      <div className="layout wall" onClick={this.handleAllClickEvents.bind(this)}>
        <Header />
        <Content /> 
       </div>

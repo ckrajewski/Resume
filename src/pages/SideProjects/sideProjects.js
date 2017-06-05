@@ -1,11 +1,14 @@
 import React from "react";
 import ImageContainer from "../../components/ImageContainer/imageContainer";
 import DescriptionContainer from "../../components/DescriptionContainer/descriptionContainer";
+import Floor from "../../components/Floor/floor";
 export default class SideProjects extends React.Component {
 
 
   render() {
     return (
+    	<div>
+     <div className="wall">
       <div className="projects">
       	<ImageContainer insideClass="pictureInsideProject"
                       img= "/public/images/fsc.png"
@@ -23,6 +26,9 @@ export default class SideProjects extends React.Component {
          <DescriptionContainer title="Delete Dupes" descriptionContainerClass="projectsDescriptionContainer">
          A python based program that scans through folders to find duplicate files and deletes them. 
          </DescriptionContainer>
+      </div>
+      </div>
+      <Floor/>
       </div>
     );
   }
