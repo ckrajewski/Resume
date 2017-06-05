@@ -79,7 +79,9 @@ body {
 .flexContainer, .job { display: flex; }
  
 .floor{
-  max-width: 100%;
+  background-image: url("/public/images/floor.jpg");
+  background-size: cover;
+  height:150px;
 }
 .headerAndButtonContainer {
   margin-left: auto;
