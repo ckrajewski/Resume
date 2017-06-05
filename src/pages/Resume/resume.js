@@ -11,7 +11,8 @@ export default class Resume extends React.Component {
      <div className="resume wall">
       <ImageContainer insideClass="pictureInsides"
                       img= "/public/images/resume.jpg"
-                      imageWidth="750px" />
+                      imageClass="resumeImageClass"
+                      pictureClass="resumeImageClass" />
 
       <ResumeDescription/>
       </div>

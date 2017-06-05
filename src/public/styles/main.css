@@ -23,6 +23,9 @@ body {
   padding-bottom: 5%;
   flex-wrap: wrap;
 }
+.aboutMePersonalDescription{
+  width:40%;
+}
 .buttonContainer {
   display: flex;
   justify-content: center;
@@ -43,6 +46,24 @@ body {
   border-radius: 10%;
 }
 
+@media only screen and (max-width: 600px) {
+  .personalDescription{
+  width:90% !important;
+  margin-left:auto;
+  margin-right: auto; 
+  }
+  .projectsDescriptionContainer{
+    width:90% !important;
+  margin-left:auto;
+  margin-right: auto;
+  }
+  .landingPagePictureClass{
+    width:100% !important;
+  }
+  .resumeImageClass {
+    width:300px !important;
+  }
+}
 .duration { font-size: 0.8em; }
  
  
@@ -107,12 +128,18 @@ body {
   margin-left:5%;
   max-width: 600px;
 } 
+
+.landingPagePictureClass{
+  width:25em;
+}
  
 .leftPanel {
   width:30%;
   margin-top: 2%; }
  
- 
+ .maxImageSize{
+  max-width:100%;
+ }
 .nameHeader {
   padding-bottom: 5%;
   border-bottom: 0.5em solid; }
@@ -132,7 +159,6 @@ body {
   padding-right: 5%; }
  
 .personalDescription {
-  width:40%;
   margin-right: auto;
   margin-left: auto;
   margin-top: 3%;
@@ -165,8 +191,8 @@ body {
   padding-bottom: 5%;
  }
  .projectsDescriptionContainer{
-  width:20%;
   margin-top:3%;
+  width:20%;
  }
 
  .resume {
@@ -187,7 +213,12 @@ body {
   cursor: pointer;
   }
  
- 
+ .resumeDescription {
+  width:40%;
+ }
+ .resumeImageClass{
+  width:750px;
+ }
 .resumePDF { background-color: #E16F6F; }
  
  

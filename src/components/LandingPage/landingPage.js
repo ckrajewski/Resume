@@ -10,7 +10,7 @@ constructor() {
 
     this.state = {
       pictureStyle:{
-        "width":"400px"
+        "width":"25em"
       }
     };
   }
@@ -21,7 +21,7 @@ constructor() {
       <div className="landingPageWrapper wall">
       <div className="headerAndButtonContainer" >
       <div className="landingPageContent" >
-        <Frame pictureStyle={this.state.pictureStyle}>
+        <Frame pictureClass="landingPagePictureClass">
             <Title />
         </Frame>
         <DescriptionContainer title="The Name" descriptionContainerClass="landingPageDescriptionContainer">
