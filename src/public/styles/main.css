@@ -63,6 +63,10 @@ body {
   .resumeImageClass {
     width:300px !important;
   }
+  .tab{
+    font-size:1.25em !important;
+    text-align: center;
+  }
 }
 .duration { font-size: 0.8em; }
  
