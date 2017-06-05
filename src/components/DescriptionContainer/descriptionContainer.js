@@ -3,7 +3,7 @@ export default class DescriptionContainer extends React.Component {
 
   render() {
     return (
-      <div className="descriptionContainer">
+      <div className={"descriptionContainer " + this.props.descriptionContainerClass}>
       <div className="sectionTitle">
        {this.props.title}
       </div>
