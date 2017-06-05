@@ -19,7 +19,6 @@ export default class Layout extends React.Component {
     }
 
     handleAllClickEvents(event) {
-        debugger;
         var navTo = event.target.getAttribute("data-content");
         if (navTo) {
             this.setState({ "navTo": this.state[navTo] });
@@ -35,7 +34,7 @@ export default class Layout extends React.Component {
 
      var Content = this.state.navTo;
      return (
-      <div className="layout wall" onClick={this.handleAllClickEvents.bind(this)}>
+      <div className="layout" onClick={this.handleAllClickEvents.bind(this)}>
        <Header />
        <Content /> 
       </div>
