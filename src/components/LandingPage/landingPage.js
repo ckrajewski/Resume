@@ -28,7 +28,7 @@ constructor() {
         They say a picture is worth a thousand words. Sometimes, you only need two. They also say simplicity is the ultimate sophistication. And I think that goes without saying.
         <div className="buttonContainer">
           <Button buttonContainer={"wordButtonContainer"} name={"Resume (.docx)"} downloadURL={"/downloadResume/Word"} buttonClass={"resumeButton resumeWord"} file={"word"} />
-          <Button name={"Resume (.pdf)"} downloadURL={"//downloadResume/PDF"} buttonClass={"resumeButton resumePDF"} file={"pdf"} />
+          <Button name={"Resume (.pdf)"} downloadURL={"/downloadResume/PDF"} buttonClass={"resumeButton resumePDF"} file={"pdf"} />
        </div>
        </DescriptionContainer>
       </div>
