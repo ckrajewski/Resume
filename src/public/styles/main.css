@@ -84,7 +84,7 @@ body {
 .floor{
   background-image: url("/public/images/floor.jpg");
   background-size: cover;
-  height:20em;
+  height:23em;
 }
 .headerAndButtonContainer {
   margin-left: auto;
