@@ -5,7 +5,7 @@ export default class ResumeDescription extends React.Component {
 
   render() {
     return (
-      <div className="personalDescription">
+      <div className="personalDescription resumeDescription">
         <DescriptionContainer title="THE RESUME">
         <div>
       	Experience. Skills. The two most important aspects to this painting. Naturally, they should get their own sections.

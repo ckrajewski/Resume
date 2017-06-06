@@ -22,7 +22,7 @@ export default class Job extends React.Component {
       } 
     return (
       <div className={"wrapper" + pointerStyle} onClick={this.handleNavigation.bind(this)}>
-        <div className="picture" style={this.props.pictureStyle}>
+        <div className={"picture " + this.props.pictureClass} style={this.props.pictureStyle}>
           <div className="hook"></div>
             <div className="frame">
               <div className={insideClass}>

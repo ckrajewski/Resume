@@ -8,7 +8,7 @@ export default class TabSection extends React.Component {
     return (
       <div>
         <div className="flexContainer tabSection">
-            <Tab title="Home" dataContent="LandingPage"/>
+            <Tab title="Home" dataContent="LandingPage" selectedTabStyle="selectedTabStyle" selectedTabContainerStyle="selectedTabContainerStyle"/>
             <Tab title={"Resume"} dataContent="Resume"/>
             <Tab title={"About Me"} dataContent="AboutMe"/>
             <Tab title="Side Projects" dataContent="SideProjects"/>

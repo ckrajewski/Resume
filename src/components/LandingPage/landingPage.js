@@ -3,22 +3,25 @@ import Frame from "../Frame/frame";
 import Title from "../Title/title";
 import Button from "../Button/button";
 import DescriptionContainer from "../../components/DescriptionContainer/descriptionContainer.js";
+import Floor from "../../components/Floor/floor.js";
 export default class LandingPage extends React.Component {
 constructor() {
     super();
 
     this.state = {
       pictureStyle:{
-        "width":"400px"
+        "width":"25em"
       }
     };
   }
 
   render() {
     return (
+      <div>
+      <div className="landingPageWrapper wall">
       <div className="headerAndButtonContainer" >
-      <div className="landingPage" >
-        <Frame pictureStyle={this.state.pictureStyle}>
+      <div className="landingPageContent" >
+        <Frame pictureClass="landingPagePictureClass">
             <Title />
         </Frame>
         <DescriptionContainer title="The Name" descriptionContainerClass="landingPageDescriptionContainer">
@@ -29,6 +32,9 @@ constructor() {
        </div>
        </DescriptionContainer>
       </div>
+      </div>
+      </div>
+      <Floor/>
       </div>
     );
   }

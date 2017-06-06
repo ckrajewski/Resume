@@ -1,8 +1,6 @@
 body {
   font-family:'Roboto',sans-serif;
-  background-image: url("/public/images/cleanRoom.png");
-  background-size: cover;
-  background-attachment: fixed; 
+  
 }
 
 .ExperienceLayout,.aboutMe,.resume { display: flex; }
@@ -21,7 +19,12 @@ body {
   width:80%; }
 
 .aboutMe {
-  margin-top: 3%;
+  padding-top: 3%;
+  padding-bottom: 5%;
+  flex-wrap: wrap;
+}
+.aboutMePersonalDescription{
+  width:40%;
 }
 .buttonContainer {
   display: flex;
@@ -43,6 +46,31 @@ body {
   border-radius: 10%;
 }
 
+@media only screen and (max-width: 600px) {
+  .personalDescription{
+  width:90% !important;
+  margin-left:auto;
+  margin-right: auto; 
+  }
+  .projectsDescriptionContainer{
+    width:90% !important;
+  margin-left:auto;
+  margin-right: auto;
+  }
+  .landingPagePictureClass{
+    width:100% !important;
+  }
+  .resumeImageClass {
+    width:300px !important;
+  }
+  .tab{
+    font-size:1.05em !important;
+    text-align: center;
+  }
+  .tabSection{
+    padding-right: 0 !important;
+  }
+}
 .duration { font-size: 0.8em; }
  
  
@@ -53,14 +81,17 @@ body {
  
 .flexContainer, .job { display: flex; }
  
- 
+.floor{
+  background-image: url("/public/images/floor.jpg");
+  background-size: cover;
+  height:20em;
+}
 .headerAndButtonContainer {
-  position: absolute;
-  top: 42%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  /* padding-top: 10%;
-  padding-bottom: 30%;*/ }
+  margin-left: auto;
+  margin-right: auto;
+  width:80%;
+   padding-top: 10%;
+  padding-bottom: 10%; }
  
  
 .headerName {
@@ -92,22 +123,32 @@ body {
   text-align: center;
   flex-flow: row; }
  
-.landingPage{
+.landingPageContent{
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
+}
+.landingPageWrapper{
+  min-height: 40em;
 }
 .landingPageDescriptionContainer{
   margin-top:3%;
-  width:400px;
   font-size:1.15em;
   margin-left:5%;
+  max-width: 600px;
 } 
+
+.landingPagePictureClass{
+  width:25em;
+}
  
 .leftPanel {
   width:30%;
   margin-top: 2%; }
  
- 
+ .maxImageSize{
+  max-width:100%;
+ }
 .nameHeader {
   padding-bottom: 5%;
   border-bottom: 0.5em solid; }
@@ -127,9 +168,9 @@ body {
   padding-right: 5%; }
  
 .personalDescription {
-  width:40%;
   margin-right: auto;
   margin-left: auto;
+  margin-top: 3%;
   
 }
 .pictureInsideProject{
@@ -155,10 +196,17 @@ body {
  
  .projects{
   align-items: flex-start;
+  flex-wrap: wrap;
+  padding-bottom: 5%;
  }
  .projectsDescriptionContainer{
-  width:20%;
   margin-top:3%;
+  width:20%;
+ }
+
+ .resume {
+  flex-wrap: wrap;
+  padding-bottom: 3%;
  }
 .resumeButton {
   color: white;
@@ -174,7 +222,12 @@ body {
   cursor: pointer;
   }
  
- 
+ .resumeDescription {
+  width:40%;
+ }
+ .resumeImageClass{
+  width:750px;
+ }
 .resumePDF { background-color: #E16F6F; }
  
  
@@ -204,7 +257,15 @@ body {
   text-transform: uppercase;
   font-family: sans-serif; }
  
- 
+ .selectedTabContainerStyle{
+  border-color:#AF6622;
+  border-bottom: solid 2px;
+ }
+ .selectedTabStyle{
+  color:#AF6622;
+
+ }
+
 .skillsFrame { }
  
  
@@ -222,10 +283,10 @@ body {
   font-size: 1.7em;
   padding-right:0.5em;
   padding-left: 0.5em;
-  color:white; }
+  }
  
   .tab:hover {
-    color:black; /*color:#6ABBDD;*/
+    color:#AF6622; /*color:#6ABBDD;*/
      }
  
  
@@ -236,5 +297,9 @@ body {
   float:right;
   padding-right:5%; }
  
- 
+ .wall {
+  background-image: url("/public/images/wall.jpg");
+  background-size: cover;
+  background-attachment: fixed; 
+ }
 .wordButtonContainer { padding-right: 2%; }

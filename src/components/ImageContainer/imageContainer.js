@@ -27,7 +27,7 @@ export default class ImageContainer extends React.Component {
     return (
        <Frame pictureStyle={this.state.pictureStyle} navTo={this.props.navTo} insideClass={this.props.insideClass}>
     	<div className={this.props.imageContainerClass} >
-        <img src={this.props.img} width={this.props.imageWidth} height={this.props.imageHeight} />
+        <img className={"maxImageSize " + this.props.imageClass} src={this.props.img} width={this.props.imageWidth} height={this.props.imageHeight} />
       </div>
       </Frame>
   
