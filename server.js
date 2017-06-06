@@ -16,7 +16,7 @@ app.get('/downloadResume/PDF', function(request, response) {
 });
 
 app.get('/downloadResume/Word', function(request, response) { 
-  var file = path.join(__dirname, '/public/documents/ChristopherKrajewskiResume.docx');
+  var file = path.join(__dirname, '/src/public/documents/ChristopherKrajewskiResume.docx');
   response.download(file);
 });
 
