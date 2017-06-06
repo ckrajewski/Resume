@@ -11,12 +11,12 @@ app.use("/public/images", express.static(__dirname + "/src/public/images"));
 app.use("/public/documents", express.static(__dirname + "/src/public/documents"));
 
 app.get('/downloadResume/PDF', function(request, response) { 
-  var file = path.join(__dirname, '/public/documents/ChrisKrajewskiResume.pdf');
+  var file = path.join(__dirname, '/public/documents/ChristopherKrajewskiResume.pdf');
   response.download(file);
 });
 
 app.get('/downloadResume/Word', function(request, response) { 
-  var file = path.join(__dirname, '/public/documents/ChrisKrajewskiResume.docx');
+  var file = path.join(__dirname, '/public/documents/ChristopherKrajewskiResume.docx');
   response.download(file);
 });
 
