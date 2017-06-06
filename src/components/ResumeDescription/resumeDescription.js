@@ -17,8 +17,8 @@ Currently, I’m working within Salesforce, developing a financial services app.
 Most of my development experience has centered around front end development. This gallery was built using React. Aura is Salesforce front end framework, which I have used extensively. Though my coding experience is not limited to the front end. Apex, Salesforce proprietary language, was used to create the API that our front end interacted with. The language is a derivative of Java. I have also developed in Python, as evidenced by a dupe detector project that I wrote.oped with the proper ways of creating an app.
         </div>
         <div className="resumePageButtonContainer">
-          <Button buttonContainer={"wordButtonContainer"} name={"Resume (.docx)"} downloadURL={"/src/what/"} buttonClass={"resumeButton resumeWord"} file={"word"} />
-          <Button name={"Resume (.pdf)"} downloadURL={"/downloads"} buttonClass={"resumeButton resumePDF"} file={"pdf"} />
+          <Button buttonContainer={"wordButtonContainer"} name={"Resume (.docx)"} downloadURL={"/downloadResume/Word"} buttonClass={"resumeButton resumeWord"} file={"word"} />
+          <Button name={"Resume (.pdf)"} downloadURL={"/downloadResume/PDF"} buttonClass={"resumeButton resumePDF"} file={"pdf"} />
        </div>
         </DescriptionContainer>
       </div>
