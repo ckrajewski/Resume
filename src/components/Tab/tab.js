@@ -9,7 +9,6 @@ handleTabClickEvents (event){
 		tabs[i].style.color="black";
 		tabs[i].parentElement.style.border="none";
 	}
-	debugger;
 	event.currentTarget.style.color="#AF6622";
 	event.currentTarget.parentElement.style.borderBottom="solid 2px";
 	event.currentTarget.parentElement.style.borderColor="#AF6622";
