@@ -64,8 +64,11 @@ body {
     width:300px !important;
   }
   .tab{
-    font-size:1.25em !important;
+    font-size:1.05em !important;
     text-align: center;
+  }
+  .tabSection{
+    padding-right: 0 !important;
   }
 }
 .duration { font-size: 0.8em; }
@@ -254,9 +257,15 @@ body {
   text-transform: uppercase;
   font-family: sans-serif; }
  
+ .selectedTabContainerStyle{
+  border-color:#AF6622;
+  border-bottom: solid 2px;
+ }
  .selectedTabStyle{
   color:#AF6622;
+
  }
+
 .skillsFrame { }
  
  
