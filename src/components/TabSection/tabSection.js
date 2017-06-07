@@ -11,7 +11,7 @@ export default class TabSection extends React.Component {
             <Tab title="Home" dataContent="LandingPage" selectedTabStyle="selectedTabStyle" selectedTabContainerStyle="selectedTabContainerStyle"/>
             <Tab title={"Resume"} dataContent="Resume"/>
             <Tab title={"About Me"} dataContent="AboutMe"/>
-            <Tab title="Side Projects" dataContent="SideProjects"/>
+            <Tab title="Projects" dataContent="SideProjects"/>
         </div>
 
       </div>
