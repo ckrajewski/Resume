@@ -10,13 +10,15 @@ app.use(express.static(path.join(__dirname, '/dist')));
 app.use("/public/images", express.static(__dirname + "/src/public/images"));
 app.use("/public/documents", express.static(__dirname + "/src/public/documents"));
 
-app.get('/downloads', function(request, response) {
-  
-  var file = path.join(__dirname, '/src/public/documents/sd.pdf');
+app.get('/downloadResume/PDF', function(request, response) { 
+  var file = path.join(__dirname, '/src/public/documents/ChristopherKrajewskiResume.pdf');
   response.download(file);
-  //response.download("sd.pdf","sd.pdf");
 });
 
+app.get('/downloadResume/Word', function(request, response) { 
+  var file = path.join(__dirname, '/src/public/documents/ChristopherKrajewskiResume.docx');
+  response.download(file);
+});
 
 app.get('/', function(request, response) {
   console.log("starting here");

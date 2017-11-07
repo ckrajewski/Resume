@@ -7,7 +7,7 @@ export default class SideProjects extends React.Component {
 
   render() {
     return (
-    	<div>
+   <div>
      <div className="wall">
       <div className="projects">
       	<ImageContainer insideClass="pictureInsideProject"
@@ -17,6 +17,8 @@ export default class SideProjects extends React.Component {
 
          <DescriptionContainer title="Financial Services Cloud" descriptionContainerClass="projectsDescriptionContainer">
          I helped to develop the Financial Services Cloud, a financial app that sits on top of the Salesforce platform. 
+         <br/>
+         To learn more, click the picture!
          </DescriptionContainer>
          <ImageContainer insideClass="pictureInsideProject"
                       img= "/public/images/DeleteDupes.png"
@@ -25,6 +27,8 @@ export default class SideProjects extends React.Component {
 
          <DescriptionContainer title="Delete Dupes" descriptionContainerClass="projectsDescriptionContainer">
          A python based program that scans through folders to find duplicate files and deletes them. 
+         <br/>
+         To learn more, click the picture!
          </DescriptionContainer>
       </div>
       </div>
