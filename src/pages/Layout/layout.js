@@ -4,17 +4,19 @@ import LandingPage from "../../components/LandingPage/landingPage";
 import Resume from "../../pages/Resume/resume";
 import AboutMe from "../../pages/AboutMe/aboutMe";
 import SideProjects from "../../pages/SideProjects/sideProjects";
+import Game from "../../pages/Game/game";
 
 export default class Layout extends React.Component {
 
     constructor() {
         super();
         this.state = {
-            "navTo": LandingPage,
+            "navTo": Game,
             "LandingPage":LandingPage,
             "Resume": Resume,
             "AboutMe" : AboutMe,
-            "SideProjects":SideProjects
+            "SideProjects":SideProjects,
+            "Game":Game
         };
     }
 

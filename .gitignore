@@ -4,3 +4,5 @@ dist/
 src/index.html
 src/.DS_Store
 src/components/.DS_Store
+src/public/.DS_Store
+.DS_Store
