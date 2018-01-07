@@ -2,18 +2,32 @@ import React from "react";
 import ImageContainer from "../../components/ImageContainer/imageContainer";
 import DescriptionContainer from "../../components/DescriptionContainer/descriptionContainer";
 import Floor from "../../components/Floor/floor";
+import GameContainer from "../../components/GameContainer/gameContainer"
 import PIXI from 'expose-loader?PIXI!phaser-ce/build/custom/pixi.js';
 import p2 from 'expose-loader?p2!phaser-ce/build/custom/p2.js';
 import Phaser from 'expose-loader?Phaser!phaser-ce/build/custom/phaser-split.js';
 
 
 export default class Game extends React.Component {
+  constructor() {
+        super();
+        this.state = {
+            "GameCreated":false
+        };
+    }
+   
+  componentDidMount() {
+    //debugger;
+     var gameCreated=this.state.GameCreated;
+    debugger;
+if(gameCreated){
+  alert('exists!');
+} 
+else{
 
-       
-  render() {
-    
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'gameArea', { preload: preload, create: create, update: update, render: render });
-
+game = new Phaser.Game(800, 600, Phaser.AUTO, 'gameArea', { preload: preload, create: create, update: update, render: render });
+//this.setGameCreated();
+}
 function preload() {
 
     game.load.image('bullet', '/public/images/assets/games/invaders/bullet.png');
@@ -25,7 +39,7 @@ function preload() {
     game.load.image('background', '/public/images/assets/games/starstruck/background2.png');
 
 }
-
+var game;
 var player;
 var aliens;
 var bullets;
@@ -456,15 +470,21 @@ function createPreviewBounds(x, y, w, h) {
 
 }
 
+  }
+  render() {
+   
 
-  
+  var gameAreaStyle={
+    width:"800px",
+    height:"600px"
+  }
   return (
    <div>
      <div className="wall">
       <div className="projects">
         
 
-      <div id="gameArea" style="width:800px; height:800px;" />
+      <GameContainer />
       </div>
       </div>
       <Floor/>
