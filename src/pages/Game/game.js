@@ -9,25 +9,19 @@ import Phaser from 'expose-loader?Phaser!phaser-ce/build/custom/phaser-split.js'
 
 
 export default class Game extends React.Component {
-  constructor() {
+  
+    constructor() {
         super();
         this.state = {
-            "GameCreated":false
+            "HighScore":0
         };
-    }
-   
+      }
   componentDidMount() {
-    //debugger;
-     var gameCreated=this.state.GameCreated;
-    debugger;
-if(gameCreated){
-  alert('exists!');
-} 
-else{
+   
 
-game = new Phaser.Game(800, 600, Phaser.AUTO, 'gameArea', { preload: preload, create: create, update: update, render: render });
+game = new Phaser.Game(725, 500, Phaser.AUTO, 'gameArea', { preload: preload, create: create, update: update, render: render });
 //this.setGameCreated();
-}
+
 function preload() {
 
     game.load.image('bullet', '/public/images/assets/games/invaders/bullet.png');
@@ -65,15 +59,19 @@ var livesString="Lives : ";
 var numberOfLives = 3;
 var customBounds={};
 var respawnDelay;
+var gameOver=false;
+var numAliens = game.rnd.integerInRange(15, 22);
 function create() {
 
     //game.physics.startSystem(Phaser.Physics.ARCADE);
+    game.world.setBounds(0, 0, 725, 1600);
     game.physics.startSystem(Phaser.Physics.P2JS);
 
     //game.physics.p2.restitution = 0.9;
     //  The scrolling starfield background
-    starfield = game.add.tileSprite(0, 0, 800, 1600, 'starfield');
-    game.world.setBounds(0, 0, 800, 1600);
+    starfield = game.add.tileSprite(0, 0, 725, 1600, 'starfield');
+   
+    //game.physics.arcade.setBoundsToWorld();
     //  Our bullet group
     bullets = game.add.group();
     bullets.enableBody = true;
@@ -105,7 +103,7 @@ function create() {
     aliens.enableBody = true;
     aliens.physicsBodyType = Phaser.Physics.ARCADE;
 
-    createAliens();
+    createAliens(numAliens);
 
     //  The score
     scoreString = 'Score : ';
@@ -142,7 +140,7 @@ function create() {
     fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
     game.physics.p2.enable(player);
     player.body.setCircle(30);
-     player.body.collideWorldBounds=true;
+    player.body.collideWorldBounds=true;
     // game.physics.arcade.checkCollision.top = false;
     // game.physics.arcade.checkCollision.bottom=false; 
      var bounds = new Phaser.Rectangle(0, 1580, 800, 20);
@@ -153,39 +151,47 @@ function create() {
     //graphics.drawRect(0, 0, bounds.width, bounds.height);
     
 }
-function setAlienAnimations(alien){
+function setAlienAnimations(alienArray){
+  for(var i=0; i<alienArray.length; i++){
+    var alien=alienArray[i];
   alien.anchor.setTo(0.5, 0.5);
             alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
             alien.play('fly');
             alien.body.moves = false;
             alien.body.collideWorldBounds = true;
+          }
 }
-function createAliens () {
 
- 
-    //phaser's random number generator
-    var numAliens = game.rnd.integerInRange(30, 45);
- 
-    for (var i = 0; i < numAliens; i++) {
+function createAliens (numberOfAliens) {
+
+    var playerStartPosX=400;
+    var playerStartPosY=1500;
+    for (var i = 0; i < numberOfAliens; i++) {
       //add sprite within an area excluding the beginning and ending
       //  of the game world so items won't suddenly appear or disappear when wrapping
-      var x = game.rnd.integerInRange(game.width, game.world.width - game.width);
+      var x = game.rnd.integerInRange(0,game.width-250);
       var y = game.rnd.integerInRange(game.height, game.world.height - game.height);
-      var x2 = game.rnd.integerInRange(player.x+150, player.x + 250);
-      var x3 = game.rnd.integerInRange(player.x-250, player.x-100);
-      var y2 = game.rnd.integerInRange(player.y-150, player.y -350);
-      var alien=aliens.create(x,y, 'invader');
-      var alien2=aliens.create(x2,y2, 'invader');
-      var alien3=aliens.create(x3,y2, 'invader');
-      setAlienAnimations(alien);
-      setAlienAnimations(alien2);
-      setAlienAnimations(alien3);
+      var x2 = game.rnd.integerInRange(playerStartPosX-140, playerStartPosX + 100);
+      var x3 = game.rnd.integerInRange(playerStartPosX-380, playerStartPosX-140);
+      var y2 = game.rnd.integerInRange(playerStartPosY-150, playerStartPosY -550);
+      var y3 = game.rnd.integerInRange(playerStartPosY-650, playerStartPosY -1050);
+      var y4 = game.rnd.integerInRange(playerStartPosY-1150, playerStartPosY -1550);
+      var alienArray=[];
+      alienArray.push(aliens.create(x,y, 'invader'));
+      alienArray.push(aliens.create(x2,y2, 'invader'));
+      alienArray.push(aliens.create(x3,y2, 'invader'));
+      alienArray.push(aliens.create(x2,y3, 'invader'));
+      alienArray.push(aliens.create(x3,y3, 'invader'));
+      alienArray.push(aliens.create(x2,y4, 'invader'));
+      alienArray.push(aliens.create(x3,y4, 'invader'));
+     // alert(y4);
+      setAlienAnimations(alienArray);
 
     
     }
 
 
-    //  All this does is basically start the invaders moving. Notice we're moving the Group they belong to, rather than the invaders directly.
+    //  All this does is basically start the invaders moving. Notice were moving the Group they belong to, rather than the invaders directly.
     var tween = game.add.tween(aliens).to( { x: 200 }, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
 
     //  When the tween loops it calls descend
@@ -248,14 +254,23 @@ function update() {
         game.physics.arcade.overlap(enemyBullets, player, enemyHitsPlayer, null, this);
         game.physics.arcade.overlap(aliens, player, enemyRunsIntoPlayer, null, this);
         game.physics.arcade.overlap(aliens, player, enemyRunsIntoPlayer, null, this);
+        game.physics.arcade.overlap(aliens, aliens,alienRunsIntoAlien, null, this);
         //game.world.wrap(player, 100, true);
         game.world.wrap(player, -20, false, false, true);
+        if(Math.ceil(player.y)<25){
+          aliens.removeAll();
+          createAliens(numAliens);
+         // createAliens(Math.ceil(numAliens-(aliens.children.length/7)));
+        }
    
     }
-    if( respawnDelay!=0 && game.time.now - respawnDelay>2500){
+    if( !gameOver && respawnDelay!=0 && game.time.now - respawnDelay>2500){
       player.x=400;
       player.y=1500;
       respawnDelay=0;
+      aliens.removeAll();
+      createAliens(numAliens);
+      //createAliens(Math.ceil(numAliens-(aliens.children.length/7)));
       player.revive();
 
     }
@@ -270,7 +285,10 @@ function render() {
     // }
 
 }
+function alienRunsIntoAlien (alien1, alien2) {
+  alien1.kill()
 
+}
 function collisionHandler (bullet, alien) {
 
     //  When a bullet hits an alien we kill them both
@@ -285,14 +303,14 @@ function collisionHandler (bullet, alien) {
     var explosion = explosions.getFirstExists(false);
     explosion.reset(alien.body.x, alien.body.y);
     explosion.play('kaboom', 30, false, true);
-
+    alien.destroy();
     if (aliens.countLiving() == 0)
     {
         score += 1000;
         scoreText.text = scoreString + score;
 
         enemyBullets.callAll('kill',this);
-        stateText.text = " You Won, \n Click to restart";
+        stateText.text = " You Won!, \n Click to restart";
         stateText.visible = true;
 
         //the "click to restart" handler
@@ -322,8 +340,9 @@ function enemyRunsIntoPlayer(player,enemy){
         player.kill();
         enemyBullets.callAll('kill');
 
-        stateText.text=" GAME OVER \n Click to restart";
+        stateText.text=" GAME OVER \n Score : " + score + " \n Click to restart";
         stateText.visible = true;
+        gameOver=true;
 
         //the "click to restart" handler
         game.input.onTap.addOnce(restart,this);
@@ -356,6 +375,7 @@ function enemyHitsPlayer (player,bullet) {
 
         stateText.text=" GAME OVER \n Click to restart";
         stateText.visible = true;
+        gameOver=true;
 
         //the "click to restart" handler
         game.input.onTap.addOnce(restart,this);
@@ -424,11 +444,11 @@ function restart () {
 
     //  A new level starts
     
-    //resets the life count
-    lives.callAll('revive');
     //  And brings the aliens back from the dead :)
+    player.x=400;
+    player.y=1500;
     aliens.removeAll();
-    createAliens();
+    createAliens(numAliens);
 
     //revives the player
     player.revive();
@@ -438,6 +458,7 @@ function restart () {
     livesText.text=livesString + numberOfLives;
     score=0;
     scoreText.text='Score : ' + score;
+    gameOver=false;
 
 }
 function createPreviewBounds(x, y, w, h) {
@@ -474,17 +495,16 @@ function createPreviewBounds(x, y, w, h) {
   render() {
    
 
-  var gameAreaStyle={
-    width:"800px",
-    height:"600px"
-  }
+  
   return (
    <div>
      <div className="wall">
-      <div className="projects">
-        
+      <div className="projects gameContainer">
 
       <GameContainer />
+       <DescriptionContainer title="Space Invaders: The Infinite Frontier" descriptionContainerClass="gameDescriptionContainer">
+         A modified version of space invaders that I created through phaser. In this version, you keep flying and enemies keep appearing. 
+         </DescriptionContainer>
       </div>
       </div>
       <Floor/>

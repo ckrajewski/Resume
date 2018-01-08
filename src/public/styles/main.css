@@ -45,7 +45,10 @@ body {
   padding:2.5%;
   border-radius: 10%;
 }
-
+.gameDescriptionContainer{
+  width:27%;
+  margin-top:3%;
+}
 @media only screen and (max-width: 600px) {
   .personalDescription{
   width:90% !important;
@@ -85,6 +88,11 @@ body {
   background-image: url("/public/images/floor.jpg");
   background-size: cover;
   height:23em;
+}
+.gameContainer{
+  margin-right: auto;
+  margin-left: auto;
+  width:80%;
 }
 .headerAndButtonContainer {
   margin-left: auto;

@@ -26,7 +26,7 @@ export default class GameContainer extends React.Component {
   	 this.state.pictureStyle.width=Number.parseInt(this.props.imageWidth)+32+"px";
     }
     return (
-       <Frame pictureStyle={this.state.pictureStyle} navTo={this.props.navTo} insideClass={this.props.insideClass}>
+       <Frame wrapperClass="" pictureStyle={this.state.pictureStyle} navTo={this.props.navTo} insideClass={this.props.insideClass}>
     	<div className={this.props.imageContainerClass} id={this.state.gameId}>
         
       </div>
