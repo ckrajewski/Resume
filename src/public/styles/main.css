@@ -50,6 +50,12 @@ body {
   margin-top:3%;
 }
 @media only screen and (max-width: 600px) {
+  .gameFrameWrapper, .gameDescriptionContainer{
+  width:100% !important;
+  }
+  .gameDescriptionContainer{
+    margin-top: 6% !important;
+  }
   .personalDescription{
   width:90% !important;
   margin-left:auto;
@@ -73,6 +79,7 @@ body {
   .tabSection{
     padding-right: 0 !important;
   }
+
 }
 .duration { font-size: 0.8em; }
  
@@ -89,10 +96,20 @@ body {
   background-size: cover;
   height:23em;
 }
+
+#gameArea, #gameArea canvas{
+    width:100%;
+  }
 .gameContainer{
   margin-right: auto;
   margin-left: auto;
-  width:80%;
+  width:90%;
+}
+.gameFrameContainer{
+  width:90%;
+}
+ .gameFrameWrapper{
+  width:70%;
 }
 .headerAndButtonContainer {
   margin-left: auto;
@@ -113,7 +130,9 @@ body {
   border-color: white;
   /*height:4em;*/ }
  
- 
+ .highScore{
+  font-size: 1.2em;
+ }
 .hide { display: none; }
  
  

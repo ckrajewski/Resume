@@ -12,14 +12,17 @@ export default class Game extends React.Component {
   
     constructor() {
         super();
+        if(window.localStorage.getItem('HighScore')==null){
+          window.localStorage.setItem('HighScore',0);
+        }
         this.state = {
-            "HighScore":0
+            "HighScore":window.localStorage.getItem('HighScore')
         };
       }
   componentDidMount() {
    
-
-game = new Phaser.Game(725, 500, Phaser.AUTO, 'gameArea', { preload: preload, create: create, update: update, render: render });
+var gameContainer=document.getElementsByClassName('gameFrameContainer')[0].getBoundingClientRect();
+game = new Phaser.Game(gameContainer.width-50, 600, Phaser.AUTO, 'gameArea', { preload: preload, create: create, update: update, render: render });
 //this.setGameCreated();
 
 function preload() {
@@ -60,16 +63,17 @@ var numberOfLives = 3;
 var customBounds={};
 var respawnDelay;
 var gameOver=false;
+var react=this;
 var numAliens = game.rnd.integerInRange(15, 22);
 function create() {
 
     //game.physics.startSystem(Phaser.Physics.ARCADE);
-    game.world.setBounds(0, 0, 725, 1600);
+    game.world.setBounds(0, 0, game.width, game.height*2);
     game.physics.startSystem(Phaser.Physics.P2JS);
 
     //game.physics.p2.restitution = 0.9;
     //  The scrolling starfield background
-    starfield = game.add.tileSprite(0, 0, 725, 1600, 'starfield');
+    starfield = game.add.tileSprite(0, 0, game.width, game.height*2, 'starfield');
    
     //game.physics.arcade.setBoundsToWorld();
     //  Our bullet group
@@ -93,7 +97,7 @@ function create() {
     enemyBullets.setAll('checkWorldBounds', true);
 
     //  The hero!
-    player = game.add.sprite(400, 1550, 'ship');
+    player = game.add.sprite(game.width/2, game.world.height-50, 'ship');
     player.anchor.setTo(0.5, 0.5);
     game.physics.enable(player, Phaser.Physics.ARCADE);
     game.camera.follow(player);
@@ -119,15 +123,6 @@ function create() {
     stateText.anchor.setTo(0.5, 0.5);
     stateText.visible = false;
     stateText.fixedToCamera=true;
-/*
-    for (var i = 0; i < 3; i++) 
-    {
-        var ship = lives.create(game.world.width - 100 + (30 * i), 60, 'ship');
-        ship.anchor.setTo(0.5, 0.5);
-        ship.angle = 90;
-        ship.alpha = 0.4;
-    }
-    */
     
 
     //  An explosion pool
@@ -143,7 +138,7 @@ function create() {
     player.body.collideWorldBounds=true;
     // game.physics.arcade.checkCollision.top = false;
     // game.physics.arcade.checkCollision.bottom=false; 
-     var bounds = new Phaser.Rectangle(0, 1580, 800, 20);
+     var bounds = new Phaser.Rectangle(0, game.world.height-20, game.width, 20);
       customBounds = { left: null, right: null, top: null, bottom: null };
     createPreviewBounds(bounds.x, bounds.y, bounds.width, bounds.height);
     //var graphics = game.add.graphics(bounds.x, bounds.y);
@@ -151,21 +146,20 @@ function create() {
     //graphics.drawRect(0, 0, bounds.width, bounds.height);
     
 }
-function setAlienAnimations(alienArray){
-  for(var i=0; i<alienArray.length; i++){
-    var alien=alienArray[i];
+function setAlienAnimations(alien){
+ 
   alien.anchor.setTo(0.5, 0.5);
             alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
             alien.play('fly');
             alien.body.moves = false;
             alien.body.collideWorldBounds = true;
           }
-}
+
 
 function createAliens (numberOfAliens) {
 
-    var playerStartPosX=400;
-    var playerStartPosY=1500;
+    var playerStartPosX=game.width/2;
+    var playerStartPosY=game.world.height-50;
     for (var i = 0; i < numberOfAliens; i++) {
       //add sprite within an area excluding the beginning and ending
       //  of the game world so items won't suddenly appear or disappear when wrapping
@@ -177,25 +171,28 @@ function createAliens (numberOfAliens) {
       var y3 = game.rnd.integerInRange(playerStartPosY-650, playerStartPosY -1050);
       var y4 = game.rnd.integerInRange(playerStartPosY-1150, playerStartPosY -1550);
       var alienArray=[];
-      alienArray.push(aliens.create(x,y, 'invader'));
-      alienArray.push(aliens.create(x2,y2, 'invader'));
-      alienArray.push(aliens.create(x3,y2, 'invader'));
-      alienArray.push(aliens.create(x2,y3, 'invader'));
-      alienArray.push(aliens.create(x3,y3, 'invader'));
-      alienArray.push(aliens.create(x2,y4, 'invader'));
-      alienArray.push(aliens.create(x3,y4, 'invader'));
-     // alert(y4);
-      setAlienAnimations(alienArray);
+      aliens.create(x,y, 'invader');
+      aliens.create(x2,y2, 'invader');
+      aliens.create(x3,y2, 'invader');
+      aliens.create(x2,y3, 'invader');
+      aliens.create(x3,y3, 'invader');
+      aliens.create(x2,y4, 'invader');
+      aliens.create(x3,y4, 'invader');
 
     
     }
+      /*
+      aliens.callAll('animations.add','fly', [ 0, 1, 2, 3 ], 20, true);
+      aliens.callAll('play','fly');
+      aliens.callAll('body.moves',false);
+      aliens.callAll('body.collideWorldBounds',true);
+      */
+      aliens.forEach(function(alien){
+        setAlienAnimations(alien);
+      });
+      var tween = game.add.tween(aliens).to( { x: 200 }, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
 
-
-    //  All this does is basically start the invaders moving. Notice were moving the Group they belong to, rather than the invaders directly.
-    var tween = game.add.tween(aliens).to( { x: 200 }, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
-
-    //  When the tween loops it calls descend
-    tween.onLoop.add(descend, this);
+      tween.onLoop.add(descend, this);
 }
 
 function setupInvader (invader) {
@@ -265,8 +262,8 @@ function update() {
    
     }
     if( !gameOver && respawnDelay!=0 && game.time.now - respawnDelay>2500){
-      player.x=400;
-      player.y=1500;
+      player.x=game.width/2;
+      player.y=game.world.height-50;
       respawnDelay=0;
       aliens.removeAll();
       createAliens(numAliens);
@@ -343,7 +340,10 @@ function enemyRunsIntoPlayer(player,enemy){
         stateText.text=" GAME OVER \n Score : " + score + " \n Click to restart";
         stateText.visible = true;
         gameOver=true;
-
+        if(react.refs.HighScore && react.state.HighScore < score){
+          react.setState({"HighScore":score});
+          window.localStorage.setItem( 'HighScore', score );
+      }
         //the "click to restart" handler
         game.input.onTap.addOnce(restart,this);
     }
@@ -376,7 +376,10 @@ function enemyHitsPlayer (player,bullet) {
         stateText.text=" GAME OVER \n Click to restart";
         stateText.visible = true;
         gameOver=true;
-
+         if(react.refs.HighScore && react.state.HighScore < score){
+          react.setState({"HighScore":score});
+          window.localStorage.setItem( 'HighScore', score );
+      }
         //the "click to restart" handler
         game.input.onTap.addOnce(restart,this);
     }
@@ -445,8 +448,8 @@ function restart () {
     //  A new level starts
     
     //  And brings the aliens back from the dead :)
-    player.x=400;
-    player.y=1500;
+    player.x=game.width/2;
+    player.y=game.world.height-50;
     aliens.removeAll();
     createAliens(numAliens);
 
@@ -504,6 +507,11 @@ function createPreviewBounds(x, y, w, h) {
       <GameContainer />
        <DescriptionContainer title="Space Invaders: The Infinite Frontier" descriptionContainerClass="gameDescriptionContainer">
          A modified version of space invaders that I created through phaser. In this version, you keep flying and enemies keep appearing. 
+         <br />
+         <br />
+         <div ref="HighScore" className="highScore">
+         <b> High Score : </b> {this.state.HighScore}
+         </div>
          </DescriptionContainer>
       </div>
       </div>
