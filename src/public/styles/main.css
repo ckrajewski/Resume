@@ -50,6 +50,13 @@ body {
   margin-top:3%;
 }
 @media only screen and (max-width: 600px) {
+
+  .mobileGameDescriptionContainer{
+    display: block !important;
+  }
+  .gameContainer{
+    display: none !important;
+  }
   .gameFrameWrapper, .gameDescriptionContainer{
   width:100% !important;
   }
@@ -176,6 +183,9 @@ body {
  .maxImageSize{
   max-width:100%;
  }
+.mobileGameDescriptionContainer{
+    display: none;
+  }
 .nameHeader {
   padding-bottom: 5%;
   border-bottom: 0.5em solid; }
