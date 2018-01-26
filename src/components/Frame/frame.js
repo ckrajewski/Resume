@@ -1,6 +1,14 @@
 import React from "react";
 export default class Job extends React.Component {
 
+  constructor() {
+    super();
+
+    this.state = {
+      wrapperClass:"wrapper"
+      
+    };
+  }
   handleNavigation (event){
     if(this.props.navTo){
         var win = window.open(this.props.navTo, '_blank');
@@ -21,7 +29,7 @@ export default class Job extends React.Component {
           insideClass=this.props.insideClass;
       } 
     return (
-      <div className={"wrapper" + pointerStyle} onClick={this.handleNavigation.bind(this)}>
+      <div className={this.props.wrapperClass + pointerStyle} onClick={this.handleNavigation.bind(this)}>
         <div className={"picture " + this.props.pictureClass} style={this.props.pictureStyle}>
           <div className="hook"></div>
             <div className="frame">

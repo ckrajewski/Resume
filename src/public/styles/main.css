@@ -45,8 +45,24 @@ body {
   padding:2.5%;
   border-radius: 10%;
 }
-
+.gameDescriptionContainer{
+  width:27%;
+  margin-top:3%;
+}
 @media only screen and (max-width: 600px) {
+
+  .mobileGameDescriptionContainer{
+    display: block !important;
+  }
+  .gameContainer{
+    display: none !important;
+  }
+  .gameFrameWrapper, .gameDescriptionContainer{
+  width:100% !important;
+  }
+  .gameDescriptionContainer{
+    margin-top: 6% !important;
+  }
   .personalDescription{
   width:90% !important;
   margin-left:auto;
@@ -70,6 +86,7 @@ body {
   .tabSection{
     padding-right: 0 !important;
   }
+
 }
 .duration { font-size: 0.8em; }
  
@@ -85,6 +102,21 @@ body {
   background-image: url("/public/images/floor.jpg");
   background-size: cover;
   height:23em;
+}
+
+#gameArea, #gameArea canvas{
+    width:100%;
+  }
+.gameContainer{
+  margin-right: auto;
+  margin-left: auto;
+  width:90%;
+}
+.gameFrameContainer{
+  width:90%;
+}
+ .gameFrameWrapper{
+  width:70%;
 }
 .headerAndButtonContainer {
   margin-left: auto;
@@ -105,7 +137,9 @@ body {
   border-color: white;
   /*height:4em;*/ }
  
- 
+ .highScore,.controls{
+  font-size: 1.2em;
+ }
 .hide { display: none; }
  
  
@@ -149,6 +183,9 @@ body {
  .maxImageSize{
   max-width:100%;
  }
+.mobileGameDescriptionContainer{
+    display: none;
+  }
 .nameHeader {
   padding-bottom: 5%;
   border-bottom: 0.5em solid; }
