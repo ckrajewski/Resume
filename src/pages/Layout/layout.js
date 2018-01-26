@@ -17,7 +17,6 @@ export default class Layout extends React.Component {
             "AboutMe" : AboutMe,
             "SideProjects":SideProjects,
             "Game":Game,
-            "VistedGame":false,
             "Page":"default"
         };
     }
