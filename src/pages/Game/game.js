@@ -555,6 +555,12 @@ export default class Game extends React.Component {
          <div ref="HighScore" className="highScore">
          <b> High Score : </b> {this.state.HighScore}
          </div>
+         <br />
+        <div className="controls">
+         <b> Controls: </b>
+         <br/>
+         Arrows to move. Space to fire.
+         </div>
          </DescriptionContainer>
       </div>
       </div>

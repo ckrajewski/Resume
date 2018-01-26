@@ -137,7 +137,7 @@ body {
   border-color: white;
   /*height:4em;*/ }
  
- .highScore{
+ .highScore,.controls{
   font-size: 1.2em;
  }
 .hide { display: none; }
