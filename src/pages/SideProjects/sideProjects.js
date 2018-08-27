@@ -29,7 +29,7 @@ export default class SideProjects extends React.Component {
                       imageWidth="290px"
                       navTo="http://openTransit.city" />
           <DescriptionContainer title="Open Transit" descriptionContainerClass="projectsDescriptionContainer">
-         I am currently working on open transit
+         I am currently working on open transit. A project devoted to improving and getting data about the San Francisco Muni public transit system.
          <br/>
          To learn more, click the picture!
          </DescriptionContainer>
