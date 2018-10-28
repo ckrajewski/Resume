@@ -6,10 +6,12 @@ export default class SideProjects extends React.Component {
 
 
   render() {
+    const widthContainer = {width:"33%", minWidth:"340px"};
     return (
    <div>
      <div className="wall">
       <div className="projects">
+      <div style={widthContainer}>
       	<ImageContainer insideClass="pictureInsideProject"
                       img= "/public/images/fsc.png"
                       imageWidth="290px"
@@ -20,6 +22,19 @@ export default class SideProjects extends React.Component {
          <br/>
          To learn more, click the picture!
          </DescriptionContainer>
+         </div>
+         <div style={widthContainer}>
+        <ImageContainer insideClass="pictureInsideProject"
+                      img= "/public/images/OpenTransit.png"
+                      imageWidth="290px"
+                      navTo="http://openTransit.city" />
+          <DescriptionContainer title="Open Transit" descriptionContainerClass="projectsDescriptionContainer">
+         I am currently working on open transit. A project devoted to improving and getting data about the San Francisco Muni public transit system.
+         <br/>
+         To learn more, click the picture!
+         </DescriptionContainer>
+         </div>
+         <div style={widthContainer}>
          <ImageContainer insideClass="pictureInsideProject"
                       img= "/public/images/DeleteDupes.png"
                       imageWidth="295px"
@@ -30,6 +45,7 @@ export default class SideProjects extends React.Component {
          <br/>
          To learn more, click the picture!
          </DescriptionContainer>
+         </div>
       </div>
       </div>
       <Floor/>
